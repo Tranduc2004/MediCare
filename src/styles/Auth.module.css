@@ -1,0 +1,919 @@
+
+.authContainer {
+  max-width: 1000px;
+  width: 100%;
+  margin: auto;
+  background-color: white;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.authFormContainer {
+  flex: 1;
+  padding: 40px;
+  transition: all 0.6s ease-in-out;
+}
+
+.authImageContainer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.authImageContent {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+}
+
+.authImageContainer::before {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  top: -25%;
+  left: -25%;
+  animation: authPulse 5s infinite;
+}
+
+@keyframes authPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+}
+
+.authLogo {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.authLogo span {
+  color: var(--accent);
+}
+
+.authImageTitle {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.authImageDescription {
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 25px;
+}
+
+.authImageIllustration {
+  max-width: 80%;
+  margin: 20px auto;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.authBenefits {
+  text-align: left;
+  margin-top: 30px;
+}
+
+.authBenefitItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.authBenefitIcon {
+  width: 30px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  font-weight: bold;
+}
+
+.authFormTitle {
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.authFormSubtitle {
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.authTabs {
+  display: flex;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #eee;
+}
+
+.authTab {
+  flex: 1;
+  text-align: center;
+  padding: 15px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #777;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.authTab.active {
+  color: var(--primary);
+}
+
+.authTab::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--primary);
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
+
+.authTab.active::after {
+  transform: scaleX(1);
+}
+
+.authForms {
+  position: relative;
+  height: 390px;
+  overflow: hidden;
+}
+
+.authLoginForm,
+.authRegisterForm {
+  position: absolute;
+  width: 100%;
+  transition: all 0.5s;
+}
+
+.authLoginForm {
+  left: 0;
+}
+
+.authRegisterForm {
+  left: 100%;
+}
+
+.authFormGroup {
+  margin-bottom: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.authFormGroup label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--dark);
+}
+
+.authFormControl {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.authFormControl:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 114, 206, 0.1);
+}
+
+.authPasswordToggle {
+  position: absolute;
+  right: 15px;
+  top: 42px;
+  cursor: pointer;
+  color: #777;
+}
+
+.authForgotPassword {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.authForgotLink {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.authForgotLink:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.authRememberMe {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.authRememberMe input {
+  margin-right: 10px;
+}
+
+.authRememberMe label {
+  font-size: 14px;
+  color: #777;
+}
+
+.authBtn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.authBtnPrimary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.authBtnPrimary:hover {
+  background-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 114, 206, 0.2);
+}
+
+.authDivider {
+  display: flex;
+  align-items: center;
+  margin: 25px 0;
+  color: #999;
+}
+
+.authDivider::before,
+.authDivider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: #eee;
+}
+
+.authDivider span {
+  padding: 0 15px;
+  font-size: 14px;
+}
+
+.authSocialLogin {
+  display: flex;
+  gap: 15px;
+}
+
+.authSocialBtn {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  background-color: white;
+  color: #444;
+}
+
+.authSocialBtn:hover {
+  background-color: #f5f5f5;
+  transform: translateY(-2px);
+}
+
+.authSocialIcon {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.authFormFooter {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #777;
+}
+
+.authFormFooter a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.authFormFooter a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .authContainer {
+    flex-direction: column;
+    max-width: 500px;
+  }
+
+  .authImageContainer {
+    display: none;
+  }
+
+  .authFormContainer {
+    padding: 30px;
+  }
+}
+
+/* Animations */
+@keyframes authFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.authFadeIn {
+  animation: authFadeIn 0.6s ease-out;
+}
+
+.authContainer2col {
+  display: flex;
+}
+
+.authLeft,
+.authRight {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 40px;
+  background: #fff;
+}
+
+.authLeft {
+  max-width: 480px;
+  background: #fff;
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.07);
+}
+
+.authRight {
+  background: linear-gradient(135deg, #2196f3 0%, #1ecb8b 100%);
+  color: #fff;
+  align-items: center;
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.07);
+}
+
+.authBrandLogo {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.authRight h3 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.authRight p {
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+}
+
+.authImgPlaceholder {
+  margin: 24px 0 32px 0;
+}
+
+.authFeatures {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1.08rem;
+}
+
+.authFeatures li {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Tab động */
+.authTabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 0;
+  position: relative;
+  border-bottom: 1.5px solid #e3e3e3;
+}
+
+.authTabs button {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 16px 0 12px 0;
+  cursor: pointer;
+  color: #555;
+  transition: color 0.2s;
+  position: relative;
+  z-index: 2;
+}
+
+.authTabs button.active {
+  color: #2196f3;
+  font-weight: 700;
+}
+
+.authTabUnderlineAnimated {
+  position: absolute;
+  bottom: 0;
+  height: 2.5px;
+  background: linear-gradient(90deg, #2196f3 60%, #1ecb8b 100%);
+  border-radius: 2px;
+  transition: left 0.3s cubic-bezier(0.4, 2, 0.6, 1),
+    width 0.3s cubic-bezier(0.4, 2, 0.6, 1);
+  z-index: 1;
+}
+
+/* Tiêu đề và mô tả */
+.authLeft h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.authLeft .brand {
+  color: #1ecb8b;
+}
+
+.authLeft .desc {
+  color: #666;
+  font-size: 1.08rem;
+  margin-bottom: 28px;
+}
+
+/* Form */
+.authFormArea {
+  margin-top: 24px;
+}
+
+.authForm {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.authForm label {
+  font-size: 1rem;
+  color: #444;
+  font-weight: 500;
+}
+
+.authForm input {
+  padding: 10px 14px;
+  border: 1.5px solid #e3e3e3;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border 0.2s;
+}
+
+.authForm input:focus {
+  border: 1.5px solid #2196f3;
+  outline: none;
+}
+
+.authSubmitBtn {
+  background: linear-gradient(90deg, #2196f3 60%, #1ecb8b 100%);
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 0;
+  font-size: 1.1rem;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.08);
+}
+
+.authSubmitBtn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 4px 16px rgba(33, 150, 243, 0.13);
+  border-radius: 8px;
+}
+
+.authErrorMessage {
+  color: #e53935;
+  background: #fff3f3;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  font-size: 0.98rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .authContainer2col {
+    flex-direction: column;
+    min-height: unset;
+  }
+  .authLeft,
+  .authRight {
+    border-radius: 0;
+    max-width: 100%;
+    min-height: unset;
+    box-shadow: none;
+    padding: 24px 8px;
+  }
+  .authImgPlaceholder > div {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 100px !important;
+  }
+  .authRight {
+    display: none;
+  }
+  .authFormSlider {
+    min-height: 0;
+    margin: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .authLeft {
+    padding: 10px 2px;
+  }
+  .authLeft h2 {
+    font-size: 1.1rem;
+  }
+  .authBrandLogo {
+    font-size: 1rem;
+  }
+  .authFormSlider {
+    min-height: 0;
+  }
+  .authFormSlide {
+    padding: 0;
+  }
+}
+
+/* Hiệu ứng slide cho form đăng nhập/đăng ký */
+.authFormSlider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  min-height: 340px;
+  margin: 0 auto;
+}
+
+.authFormSliderInner {
+  display: flex;
+  width: 100%;
+  transition: transform 0.5s cubic-bezier(0.7, 1.7, 0.7, 1);
+  margin-top: 10px;
+}
+
+.authFormSlide {
+  width: 100%;
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  background: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.authForm {
+  width: 100%;
+}
+
+.authSubmitBtn {
+  width: 100%;
+  background: linear-gradient(90deg, #2196f3 60%, #1ecb8b 100%);
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 0;
+  font-size: 1.1rem;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.08);
+}
+
+.authSubmitBtn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 4px 16px rgba(33, 150, 243, 0.13);
+  border-radius: 8px;
+}
+
+/* Thêm vào file CSS hiện có */
+
+/* Nút "Tôi là bác sĩ" */
+.authDoctorBtn {
+  width: 100%;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 0;
+  font-size: 1rem;
+  margin-top: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.authDoctorBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.authDoctorBtn:hover::before {
+  left: 100%;
+}
+
+.authDoctorBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+}
+
+.authDoctorBtn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
+}
+
+/* Icon bác sĩ */
+.authDoctorIcon {
+  font-size: 18px;
+  color: #fff;
+}
+
+/* Divider giữa các nút */
+.authButtonDivider {
+  margin: 20px 0;
+  text-align: center;
+  position: relative;
+}
+
+.authButtonDivider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #e5e7eb, transparent);
+}
+
+.authButtonDivider span {
+  background: #fff;
+  padding: 0 16px;
+  color: #9ca3af;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Nút "Quay lại trang chủ" */
+.authBackBtn {
+  width: 100%;
+  background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 0;
+  font-size: 1rem;
+  margin-top: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(107, 114, 128, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.authBackBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.authBackBtn:hover::before {
+  left: 100%;
+}
+
+.authBackBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(107, 114, 128, 0.3);
+  background: linear-gradient(135deg, #4b5563 0%, #374151 100%);
+}
+
+.authBackBtn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(107, 114, 128, 0.2);
+}
+
+/* Icon mũi tên */
+.authBackIcon {
+  font-size: 16px;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.authBackBtn:hover .authBackIcon {
+  transform: translateX(-2px);
+}
+
+/* Container cho các nút phụ */
+.authSecondaryActions {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #f3f4f6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .authDoctorBtn,
+  .authBackBtn {
+    padding: 14px 0;
+    font-size: 0.95rem;
+  }
+
+  .authSecondaryActions {
+    margin-top: 20px;
+    padding-top: 16px;
+  }
+
+  .authButtonDivider {
+    margin: 16px 0;
+  }
+}
+
+/* Hiệu ứng loading cho nút bác sĩ */
+.authDoctorBtn.loading {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.authDoctorBtn.loading::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top: 2px solid #fff;
+  border-radius: 50%;
+  animation: authSpin 1s linear infinite;
+}
+
+@keyframes authSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Hiệu ứng pulse cho các nút */
+.authDoctorBtn:focus,
+.authBackBtn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Tạo hiệu ứng gradient động */
+@keyframes authGradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.authDoctorBtn {
+  background-size: 200% 200%;
+  animation: authGradientShift 3s ease infinite;
+}
+
+/* Thêm style cho icon stethoscope nếu sử dụng */
+.authStethoscopeIcon {
+  font-size: 18px;
+  margin-right: 8px;
+}
+
+/* Container chính cho form actions */
+.authFormActions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+/* Grouping cho primary và secondary buttons */
+.authPrimaryActions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.authSecondaryActions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #f3f4f6;
+}
